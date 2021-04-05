@@ -2,7 +2,7 @@ import { mount } from 'auth/AuthApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+export default ({ onSignIn }) => {
     const ref = useRef(null);
     const history = useHistory(); //browser history object
 
@@ -15,9 +15,7 @@ export default () => {
                     history.push(nexPathName); //Actualiza en host cuando ocurra un evento de onNavigate desde una SubApp 
                 }
             },
-            onSignIn: () => {
-                console.log('User signed in');
-            }
+            onSignIn
         });
 
         history.listen(onParentNavigate);
