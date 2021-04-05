@@ -17,10 +17,7 @@ const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
         history.listen(onNavigate);
     }
 
-    ReactDom.render(
-        <App onSignIn={onSignIn} history={history} />,
-        el
-    );
+    ReactDom.render(<App onSignIn={onSignIn} history={history} />, el);
 
     return { //retornaremos una función que permita al host comunicar al remote actualizaciones en history
         onParentNavigate({ pathname: nexPathName }) {
