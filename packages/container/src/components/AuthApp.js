@@ -14,6 +14,9 @@ export default () => {
                 if (pathname !== nexPathName) { //Para no caer en loop infinito de actualización por callback entre el host y remote.
                     history.push(nexPathName); //Actualiza en host cuando ocurra un evento de onNavigate desde una SubApp 
                 }
+            },
+            onSignIn: () => {
+                console.log('User signed in');
             }
         });
 

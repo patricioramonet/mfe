@@ -8,7 +8,7 @@ import App from './App';
 // Mount function to start up the app
 //se agrega segundo argumento de history para ejecución en aislamiento del MFE,
 //se agrega tercer argumento de inicial path para tener una ruta raiz 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
     const history = defaultHistory || createMemoryHistory({
         initialEntries: [initialPath]
     }); //si defaultHistory es proporcionado lo usaremos, sino significa que se está ejecutando desde el container.
@@ -18,7 +18,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     }
 
     ReactDom.render(
-        <App history={history} />,
+        <App onSignIn={onSignIn} history={history} />,
         el
     );
 
